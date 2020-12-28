@@ -100,7 +100,8 @@ class SodaMachine:
                 f"fail to start machine")
 
     @classmethod
-    def start(cls, drinks_mapping: List[Tuple[str, int, int]], visa_server, username, password):
+    def start(cls, drinks_mapping: List[Tuple[str, int, int]], visa_server: str,
+              username: str, password: str):
 
         visa_client = VisaClient.create(visa_server, username, password)
 
