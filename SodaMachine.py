@@ -16,14 +16,12 @@ class Drink:
         return True
 
     def load_more(self, amount):
-        self.amount = amount
-
-        # if amount < 0:
-        #     print("Can't load negative amount of cans")
-        #     return False
-        # else:
-        #     self.amount += amount
-        #     return True
+        if amount < 0:
+            print("Can't load negative amount of cans")
+            return False
+        else:
+            self.amount += amount
+            return True
 
     def __repr__(self):
         return f"amount: {self.amount}, price: {self.price}"
@@ -37,13 +35,13 @@ class SodaMachine:
             self.drinks[drink_name] = drink_object
 
     def add_new_kind_of_drink(self, drink_name, amount_of_cans, can_price):
-        self.drinks[drink_name] = Drink(amount_of_cans, can_price)
-        # if amount_of_cans >= 0 and can_price >= 0:
-        #     self._drinks[drink_name] = Drink(amount_of_cans, can_price)
-        # else:
-        #     raise Exception(
-        #         f"Invalid param supplied to start, {(drink_name, amount_of_cans, can_price)}, "
-        #         f"fail to start machine")
+
+        if amount_of_cans >= 0 and can_price >= 0:
+            self.drinks[drink_name] = Drink(amount_of_cans, can_price)
+        else:
+            raise Exception(
+                f"Invalid param supplied to start, {(drink_name, amount_of_cans, can_price)}, "
+                f"fail to start machine")
 
     @classmethod
     def start(cls, drinks_mapping: List[Tuple[str, int, int]]):
@@ -75,7 +73,7 @@ class SodaMachine:
 
 
 def main():
-    my_machine = SodaMachine.start([("Coke", 10, 10), ("Orange Juice", 10,15), ("Water", 10, 7)])
+    my_machine = SodaMachine.start([("Coke", 10, 10), ("Orange Juice", 10, 15), ("Water", 10, 7)])
 
     while True:
         print("Soda Machine:")
