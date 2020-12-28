@@ -9,9 +9,9 @@ class Drink:
     def get_one(self):
         self.amount -= 1
 
-        # if self.amount < 1:
-        #     print("Can't get a drink")
-        #     return False
+        if self.amount < 1:
+            print("Can't get a drink")
+            return False
 
         return True
 
