@@ -1,14 +1,14 @@
 import pytest
-from SodaMachine import SodaMachine
+from soda_machine import SodaMachine
 
 
 @pytest.fixture
 def soda_machine():
-    return SodaMachine.start([("Coke", 10, 10)])
+    return SodaMachine.start([("Coke", 10, 10)], "visa_server", "username", "password")
 
 
 def test_create_soda_machine():
-    machine = SodaMachine.start([("Coke", 10, 10)])
+    machine = SodaMachine.start([("Coke", 10, 10)], "visa_server", "username", "password")
     assert "Coke" in machine.drinks, "Coke is missing in machine"
     assert machine.drinks["Coke"].price == 10, "Wrong price was set to Coke"
     assert machine.drinks["Coke"].amount == 10, "Wrong amount was set to Coke"
