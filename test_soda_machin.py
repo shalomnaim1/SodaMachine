@@ -1,5 +1,5 @@
 import pytest
-from SodaMachine import SodaMachine
+from soda_machine import SodaMachine
 
 
 @pytest.fixture
